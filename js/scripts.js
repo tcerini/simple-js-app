@@ -20,5 +20,5 @@ for (let i = 0; i < pokemonList.length; i++) {
 
 //forEach loop to iterate over pokemon array
 pokemonList.forEach(function(pokemon) {
-  console.log(pokemon.name);
+  console.log(pokemon.name + ' is ' + pokemon.height + 'm tall' + ' and is a ' + pokemon.type + ' type Pokemon');
 });
