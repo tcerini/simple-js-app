@@ -12,11 +12,23 @@ let pokemonList = [
 for (let i = 0; i < pokemonList.length; i++) {
   if (pokemonList[i].height > 3.4) {
     document.write(pokemonList[i].name + " (Height: " + pokemonList[i].height + ")" + " - Wow. That's Big!<br>")
+//IIFE
+let pokemonRepository = function () {
+  let pokemonList = [];
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
   }
-  else {
-    document.write( pokemonList[i].name + " (Height: " + pokemonList[i].height + ")<br>")
+
+  function getAll() {
+    return pokemonList;
   }
-}
+
+  return {
+    add: add,
+    getAll: getAll
+};
+}();
 
 //forEach loop to iterate over pokemon array
 pokemonList.forEach(function(pokemon) {
