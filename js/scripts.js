@@ -56,5 +56,5 @@ pokemonRepository.add(
 
 //forEach loop to iterate over pokemon array
 pokemonList.forEach(function(pokemon) {
-  console.log(pokemon.name + ' is ' + pokemon.height + 'm tall' + ' and is a ' + pokemon.type + ' type Pokemon');
+  document.write( pokemon.name + ' is ' + pokemon.height + 'm tall' + ' and is a ' + pokemon.type + ' type Pokemon<br>');
 });
