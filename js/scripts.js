@@ -1,3 +1,4 @@
+//OLD CODE START
 //Pokemon list in array
 // let pokemonList = [
 //   { name: 'Bulbasaur', height: 0.7, type: ['grass', 'poison']},
@@ -17,6 +18,7 @@
 //     document.write( pokemonList[i].name + " (Height: " + pokemonList[i].height + ")<br>")
 //   }
 // }
+// OLD CODE END
 
 //IIFE
 let pokemonRepository = function () {
@@ -47,5 +49,5 @@ pokemonRepository.add(
 
 //forEach loop to iterate over pokemon array
 pokemonList.forEach(function(pokemon) {
-  console.log(pokemon.name + ' is ' + pokemon.height + 'm tall' + ' and is a ' + pokemon.type + ' type Pokemon');
+  document.write(pokemon.name + ' is ' + pokemon.height + 'm tall' + ' and is a ' + pokemon.type + ' type Pokemon');
 });
