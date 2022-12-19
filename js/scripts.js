@@ -38,6 +38,8 @@ let pokemonRepository = function () {
 };
 }();
 
+let pokemonList = pokemonRepository.getAll();
+
 //adding Pokemon to IFFE pokemonList
 pokemonRepository.add(
 { name: 'Bulbasaur', height: 0.7, type: ['grass', 'poison']});
