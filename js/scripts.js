@@ -10,10 +10,22 @@ let pokemonRepository = function () {
     return pokemonList;
   }
 
+  function addListItem(pokemon) {
+    let pokemonList = document.querySelector(".pokemon-list")
+    let listItem = document.createElement('li')
+    let button = document.createElement('button')
+    button.innerText = pokemon.name;
+    button.classList.add("pokemon-button")
+    listItem.appendChild(button);
+    pokemonList.appendChild(listItem)
+  }
+
   return {
     add: add,
-    getAll: getAll
-};
+    getAll: getAll,
+    addListItem: addListItem
+  }
+
 }();
 
 let pokemonList = pokemonRepository.getAll();
@@ -32,29 +44,19 @@ pokemonRepository.add(
 pokemonRepository.add(
 { name: 'Arbok', height: 3.5, type: ['poison']});
 
-//forEach loop to iterate over pokemon array
-pokemonList.forEach(function(pokemon) {
-  let pokemonList = document.querySelector(".pokemon-list")
-  let listPokemon = document.createElement('.li')
-  let button = document.createElement('button')
-  button.innerText = pokemon.name;
-  button.classList.add("pokemon-button")
-  listPokemon.appendChild(button);
-  pokemonList.appendChild(listPokemon)
+pokemonRepository.getAll().forEach(function(pokemon) {
+  pokemonRepository.addListItem(pokemon);
 });
 
-// function addListItem (pokemon) {
+//create pokemonList for each which then uses PokemonList.addlistitem etc as the function
+
+// //forEach loop to iterate over pokemon array
+// pokemonList.forEach(function(pokemon) {
 //   let pokemonList = document.querySelector(".pokemon-list")
-//   let listPokemon = document.createElement('.li')
+//   let listItem = document.createElement('li')
 //   let button = document.createElement('button')
 //   button.innerText = pokemon.name;
 //   button.classList.add("pokemon-button")
-//   listPokemon.appendChild(button);
-//   pokemonList.appendChild(listPokemon)
-// }
-
-
-//Old for each code
-//pokemonList.forEach(function(pokemon) {
-//  document.write( pokemon.name + ' is ' + pokemon.height + 'm tall' + ' and is a ' + pokemon.type + ' type Pokemon<br>');
-//});
+//   listItem.appendChild(button);
+//   pokemonList.appendChild(listItem)
+// });
