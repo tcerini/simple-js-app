@@ -1,0 +1,55 @@
+ul {
+  list-style-type: none;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2b2b2b;
+}
+
+button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+
+  /* takes the font from the outer container */
+  font-family: inherit;
+
+  /* styles the background color, font color, and text decoration (underline, etc.) of the button */
+  background-color: #f8f8ff;
+  color: #2b2b2b;
+  text-decoration: none;
+  style: outset:
+  padding: 15px;
+  border-radius: 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition: 0.2s opacity;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus,
+.button_CV:hover,
+.button_CV:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media all and (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
