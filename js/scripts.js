@@ -10,6 +10,8 @@ let pokemonRepository = function () {
     return pokemonList;
   }
 
+//addListItem function inside IIFE to create button for each pokemon
+
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list")
     let listItem = document.createElement('li')
@@ -18,12 +20,18 @@ let pokemonRepository = function () {
     button.classList.add("pokemon-button")
     listItem.appendChild(button);
     pokemonList.appendChild(listItem)
+    //event listener where upon button click, Pokemon name is logged in console
+    button.addEventListener('click', function(Event) {
+      console.log(pokemon.name);
+    });
   }
+//adding all functions to be available outside IIFE
 
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+//    showDetails: showDetails
   }
 
 }();
@@ -44,19 +52,7 @@ pokemonRepository.add(
 pokemonRepository.add(
 { name: 'Arbok', height: 3.5, type: ['poison']});
 
+//retrieving all pokemon in repository and performing addListItem function forEach pokemon
 pokemonRepository.getAll().forEach(function(pokemon) {
   pokemonRepository.addListItem(pokemon);
 });
-
-//create pokemonList for each which then uses PokemonList.addlistitem etc as the function
-
-// //forEach loop to iterate over pokemon array
-// pokemonList.forEach(function(pokemon) {
-//   let pokemonList = document.querySelector(".pokemon-list")
-//   let listItem = document.createElement('li')
-//   let button = document.createElement('button')
-//   button.innerText = pokemon.name;
-//   button.classList.add("pokemon-button")
-//   listItem.appendChild(button);
-//   pokemonList.appendChild(listItem)
-// });
