@@ -27,6 +27,21 @@ let pokemonRepository = function () {
     console.error(e);
   })
   }
+
+//loadDetails function
+  function loadDetails () {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
 //addListItem function inside IIFE to create button for each pokemon
 
   function addListItem(pokemon) {
