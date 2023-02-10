@@ -42,6 +42,13 @@ let pokemonRepository = function () {
     });
   }
 
+//adding function to show pokemon detials in console log
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+      console.log(pokemon);
+    });
+  }
+
 //addListItem function inside IIFE to create button for each pokemon
 
   function addListItem(pokemon) {
