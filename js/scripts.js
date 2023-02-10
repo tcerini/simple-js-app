@@ -1,6 +1,7 @@
 //IIFE
 let pokemonRepository = function () {
   let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151'
 
   function add(pokemon) {
     pokemonList.push(pokemon);
@@ -10,6 +11,22 @@ let pokemonRepository = function () {
     return pokemonList;
   }
 
+//loadList function
+  function loadList() {
+  return fetch(apiUrl).then(function (response) {
+    return response.json();
+  }).then(function (json) {
+    json.results.forEach(function (item) {
+      let pokemon = {
+        name: item.name,
+        detailsUrl: item.url
+      };
+      add(pokemon);
+    });
+  }).catch(function (e) {
+    console.error(e);
+  })
+  }
 //addListItem function inside IIFE to create button for each pokemon
 
   function addListItem(pokemon) {
@@ -22,37 +39,42 @@ let pokemonRepository = function () {
     pokemonList.appendChild(listItem)
     //event listener where upon button click, Pokemon name is logged in console
     button.addEventListener('click', function(Event) {
-      console.log(pokemon.name);
+      console.log(pokemon);
     });
   }
-//adding all functions to be available outside IIFE
 
+//adding all functions to be available outside IIFE
   return {
     add: add,
     getAll: getAll,
     addListItem: addListItem,
-//    showDetails: showDetails
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails
   }
 
 }();
 
 let pokemonList = pokemonRepository.getAll();
 
-//adding Pokemon to IIFE pokemonList
-pokemonRepository.add(
-{ name: 'Bulbasaur', height: 0.7, type: ['grass', 'poison']});
-pokemonRepository.add(
-{ name: 'Mr. Mime', height: 1.3, type: ['psychic', 'fairy']});
-pokemonRepository.add(
-{ name: 'Sandshrew', height: 0.6, type: ['ground']});
-pokemonRepository.add(
-{ name: 'Haunter', height: 1.6, type: ['ghost', 'poison']});
-pokemonRepository.add(
-{ name: 'Tentacruel', height: 1.6, type: ['water', 'poison']});
-pokemonRepository.add(
-{ name: 'Arbok', height: 3.5, type: ['poison']});
-
 //retrieving all pokemon in repository and performing addListItem function forEach pokemon
-pokemonRepository.getAll().forEach(function(pokemon) {
-  pokemonRepository.addListItem(pokemon);
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+  });
 });
+
+
+// //adding Pokemon to IIFE pokemonList
+// pokemonRepository.add(
+// { name: 'Bulbasaur', height: 0.7, type: ['grass', 'poison']});
+// pokemonRepository.add(
+// { name: 'Mr. Mime', height: 1.3, type: ['psychic', 'fairy']});
+// pokemonRepository.add(
+// { name: 'Sandshrew', height: 0.6, type: ['ground']});
+// pokemonRepository.add(
+// { name: 'Haunter', height: 1.6, type: ['ghost', 'poison']});
+// pokemonRepository.add(
+// { name: 'Tentacruel', height: 1.6, type: ['water', 'poison']});
+// pokemonRepository.add(
+// { name: 'Arbok', height: 3.5, type: ['poison']});
