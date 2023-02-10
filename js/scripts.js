@@ -11,7 +11,7 @@ let pokemonRepository = function () {
     return pokemonList;
   }
 
-//loadList function
+//loadList function retrieving JSON response to load all pokemon (151)
   function loadList() {
   return fetch(apiUrl).then(function (response) {
     return response.json();
