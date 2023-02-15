@@ -29,7 +29,7 @@ let pokemonRepository = function () {
   }
 
 //loadDetails function
-  function loadDetails () {
+  function loadDetails (item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
@@ -61,7 +61,7 @@ let pokemonRepository = function () {
     pokemonList.appendChild(listItem)
     //event listener where upon button click, Pokemon name is logged in console
     button.addEventListener('click', function(Event) {
-      console.log(pokemon);
+      showDetails(pokemon);
     });
   }
 
