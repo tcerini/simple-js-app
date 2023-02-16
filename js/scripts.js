@@ -108,6 +108,30 @@ let pokemonRepository = function () {
     //adding class list to modal once it is created
     modalContainer.classList.add('is-visible');
   }
+
+  //hide modal function that is reference in the close button element
+  function hideModal() {
+    let modalContainer = document.querySelector('#modal-container');
+    modalContainer.classList.remove('is-visible');
+  }
+
+  //esc button option to exit when modal is visible
+  window.addEventListener('keydown', (e) => {
+    let modalContainer = document.querySelector('#modal-container');
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();
+    }
+  });
+
+  //exit modal when clicking modal container but not inside modal
+  modalContainer.addEventListener('click', (e) => {
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
+
+  //returning all functions to be available outside IIFE
   return {
     add: add,
     getAll: getAll,
