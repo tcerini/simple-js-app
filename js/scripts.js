@@ -64,6 +64,50 @@ let pokemonRepository = function () {
       showModal(pokemon);
     });
   }
+
+  function showModal(pokemon) {
+
+    //remove existing content
+    modalContainer.innerHTML = '';
+
+    //add in modal div element and assign class
+    let modal =  document.createElement('div');
+    modal.classList.add('modal');
+
+    //add content to the modal (close button)
+    let closeButtonElement = document.createElement('button');
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innerText = 'X';
+    closeButtonElement.addEventListener('click', hideModal);
+
+    //add content to the modal (text elements, image and detials). Assigned class.
+    let titleElement = document.createElement('h1');
+    titleElement.classList.add('title-element')
+    titleElement.innerText = "Pokedex";
+
+    let nameElement = document.createElement('p');
+    nameElement.classList.add('name-element')
+    nameElement.innerText = 'Name: ' + pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+
+    let heightElement = document.createElement('p');
+    heightElement.classList.add('height-element')
+    heightElement.innerText = 'Height: ' + pokemon.height;
+
+    let imageElement = document.createElement('img')
+    imageElement.classList.add('image-element')
+    imageElement.src = pokemon.imageUrl
+
+    //appending all elements to modal modalContainer
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(nameElement);
+    modal.appendChild(heightElement);
+    modal.appendChild(imageElement);
+    modalContainer.appendChild(modal);
+
+    //adding class list to modal once it is created
+    modalContainer.classList.add('is-visible');
+  }
   return {
     add: add,
     getAll: getAll,
