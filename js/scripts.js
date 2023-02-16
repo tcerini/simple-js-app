@@ -11,7 +11,7 @@ let pokemonRepository = function () {
     return pokemonList;
   }
 
-//loadList function retrieving JSON response to load all pokemon (151)
+  //loadList function retrieving JSON response to load all pokemon (151)
   function loadList() {
   return fetch(apiUrl).then(function (response) {
     return response.json();
@@ -28,7 +28,7 @@ let pokemonRepository = function () {
   })
   }
 
-//loadDetails function
+  //loadDetails function
   function loadDetails (item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
@@ -138,7 +138,8 @@ let pokemonRepository = function () {
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    showDetails: showDetails
+    showDetails: showDetails,
+    showModal: showModal
   }
 
 }();
