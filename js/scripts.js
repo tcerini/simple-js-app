@@ -151,18 +151,3 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
-
-// //adding Pokemon to IIFE pokemonList
-// pokemonRepository.add(
-// { name: 'Bulbasaur', height: 0.7, type: ['grass', 'poison']});
-// pokemonRepository.add(
-// { name: 'Mr. Mime', height: 1.3, type: ['psychic', 'fairy']});
-// pokemonRepository.add(
-// { name: 'Sandshrew', height: 0.6, type: ['ground']});
-// pokemonRepository.add(
-// { name: 'Haunter', height: 1.6, type: ['ghost', 'poison']});
-// pokemonRepository.add(
-// { name: 'Tentacruel', height: 1.6, type: ['water', 'poison']});
-// pokemonRepository.add(
-// { name: 'Arbok', height: 3.5, type: ['poison']});
