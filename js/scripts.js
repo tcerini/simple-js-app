@@ -42,15 +42,7 @@ let pokemonRepository = function () {
     });
   }
 
-//adding function to show pokemon detials in console log
-  function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
-      console.log(pokemon);
-    });
-  }
-
-//addListItem function inside IIFE to create button for each pokemon
-
+  //addListItem function inside IIFE to create button for each pokemon
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list")
     let listItem = document.createElement('li')
@@ -60,13 +52,18 @@ let pokemonRepository = function () {
     button.classList.add("pokemon-button")
     listItem.appendChild(button);
     pokemonList.appendChild(listItem)
-    //event listener where upon button click, Pokemon name is logged in console
+    //event listener where upon button click, showDetails performed on pokemon
     button.addEventListener('click', function(Event) {
       showDetails(pokemon);
     });
   }
 
-//adding all functions to be available outside IIFE
+  //adding function to show pokemon detials in console log
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+      showModal(pokemon);
+    });
+  }
   return {
     add: add,
     getAll: getAll,
