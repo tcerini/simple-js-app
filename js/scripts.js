@@ -51,7 +51,7 @@ let pokemonRepository = function () {
     listItem.classList.add("group-list-item")
     button.innerText = pokemon.name;
     button.innerText = button.innerText.charAt(0).toUpperCase() + button.innerText.slice(1);
-    button.classList.add("btn btn-primary")
+    button.classList.add("btn-secondary")
     listItem.appendChild(button);
     pokemonList.appendChild(listItem)
     //event listener where upon button click, showDetails performed on pokemon
@@ -69,48 +69,65 @@ let pokemonRepository = function () {
 
   function showModal(pokemon) {
 
-    //remove existing content
-    modalContainer.innerHTML = '';
+    //new remove content
+    let modalBody = document.querySelector(".modal-body");
+    let modalTitle = document.querySelector(".modal-title");
 
-    //add in modal div element and assign class
-    let modal =  document.createElement('div');
-    modal.setAttribute('id','modal');
+    modalTitle.empty();
+    modalBody.empty();
+    //
 
-    //add content to the modal (close button)
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'X';
-    closeButtonElement.addEventListener('click', hideModal);
+    //define elements to be added to modal for pokemon
+    let pokemonName = $("<h1>" + pokemon.name + "</h1>")
+    let pokemonImage = $('<img class="modal-img" style="width:50%">');
+    pokemonImage.attr("src", pokemon.imageUrl);
+    let pokemonHeight = $("<p>" + "Height : " + pokemon.height + "</p>");
 
-    //add content to the modal (text elements, image and detials). Assigned class.
-    let titleElement = document.createElement('h1');
-    titleElement.classList.add('title-element')
-    titleElement.innerText = "Pokedex";
-
-    let nameElement = document.createElement('p');
-    nameElement.classList.add('name-element')
-    nameElement.innerText = 'Name: ' + pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-
-    let heightElement = document.createElement('p');
-    heightElement.classList.add('height-element')
-    heightElement.innerText = 'Height: ' + pokemon.height;
-
-    let imageElement = document.createElement('img')
-    imageElement.classList.add('image-element')
-    imageElement.src = pokemon.imageUrl
-
-    //appending all elements to modal modalContainer
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(nameElement);
-    modal.appendChild(heightElement);
-    modal.appendChild(imageElement);
-    modalContainer.appendChild(modal);
-
-    //adding class list to modal once it is created
-    modalContainer.classList.add('is-visible');
+    //append elements to modal
+    modalTitle.append(pokemonName);
+    modalBody.append(pokemonImage);
+    modalBody.append(pokemonHeight);
   }
+  //
+  //   //add in modal div element and assign class
+  //   let modal =  document.createElement('div');
+  //   modal.setAttribute('id','modal');
+  //
+  //   //add content to the modal (close button)
+  //   let closeButtonElement = document.createElement('button');
+  //   closeButtonElement.classList.add('modal-close');
+  //   closeButtonElement.innerText = 'X';
+  //   closeButtonElement.addEventListener('click', hideModal);
+  //
+  //   //add content to the modal (text elements, image and detials). Assigned class.
+  //   let titleElement = document.createElement('h1');
+  //   titleElement.classList.add('title-element')
+  //   titleElement.innerText = "Pokedex";
+  //
+  //   let nameElement = document.createElement('p');
+  //   nameElement.classList.add('name-element')
+  //   nameElement.innerText = 'Name: ' + pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+  //
+  //   let heightElement = document.createElement('p');
+  //   heightElement.classList.add('height-element')
+  //   heightElement.innerText = 'Height: ' + pokemon.height;
+  //
+  //   let imageElement = document.createElement('img')
+  //   imageElement.classList.add('image-element')
+  //   imageElement.src = pokemon.imageUrl
+  //
+  //   //appending all elements to modal modalContainer
+  //   modal.appendChild(closeButtonElement);
+  //   modal.appendChild(titleElement);
+  //   modal.appendChild(nameElement);
+  //   modal.appendChild(heightElement);
+  //   modal.appendChild(imageElement);
+  //   modalContainer.appendChild(modal);
+  //
+  //   //adding class list to modal once it is created
+  //   modalContainer.classList.add('is-visible');
 
+  //
   //hide modal function that is reference in the close button element
   function hideModal() {
     let modalContainer = document.querySelector('#modal-container');
