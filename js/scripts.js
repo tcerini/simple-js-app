@@ -73,7 +73,7 @@ let pokemonRepository = function () {
 
     //add in modal div element and assign class
     let modal =  document.createElement('div');
-    modal.classList.add('modal');
+    modal.setAttribute('id','modal');
 
     //add content to the modal (close button)
     let closeButtonElement = document.createElement('button');
