@@ -31,9 +31,11 @@
         </div>
       </nav>
     <h1>Pokedex</h1>
-    <ul class="list-group"> </ul>
+    <ul class="list-group">
+      <div class="pokemon-list"></div>
+    </ul>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog" id="modal-container" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -42,6 +44,7 @@
             </button>
           </div>
           <div class="modal-body">
+            ...
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -50,7 +53,6 @@
         </div>
       </div>
     </div>
-    <div id="modal-container"></div>
     <script src="js/promise-polyfill.js"></script>
     <script src="js/fetch-polyfill.js"></script>
     <script src="js/scripts.js"></script>
