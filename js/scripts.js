@@ -2,7 +2,6 @@
 let pokemonRepository = function () {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151'
-  let modalContainer = document.querySelector('#modal-container');
 
   function add(pokemon) {
     pokemonList.push(pokemon);
@@ -99,22 +98,6 @@ let pokemonRepository = function () {
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.classList.remove('is-visible');
   }
-
-  //esc button option to exit when modal is visible
-  window.addEventListener('keydown', (e) => {
-    let modalContainer = document.querySelector('#modal-container');
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();
-    }
-  });
-
-  //exit modal when clicking modal container but not inside modal
-  modalContainer.addEventListener('click', (e) => {
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
 
   //returning all functions to be available outside IIFE
   return {
