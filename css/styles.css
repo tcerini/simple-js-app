@@ -6,10 +6,6 @@ Modal innner - white - #fefefe
 Modal container - red - rgba(139, 0, 0, 0.6)
  */
 
-ul {
-  list-style-type: none;
-}
-
 body {
   text-align: center;
   font-family: 'Lato', sans-serif;
@@ -44,30 +40,9 @@ button:focus,
   opacity: 0.8;
 }
 
-/* styling for modal */
-#modal-container {
-  display: none;
-}
-
-#modal-container.is-visible {
-  position: fixed;
-  padding: 20px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(139, 0, 0, 0.6);
-
-  /* to show it above other content */
-  z-index: 999;
-
-  /* to allow scrolling if the screen is not high enough*/
-  overflow: auto;
-
-  /* this is used to center the modal */
-  display: grid;
-  text-align: center;
+.list-group-item {
+  border: none;
+  display: inline-block;
 }
 
 #modal {
@@ -81,6 +56,7 @@ button:focus,
 
 .title-element {
   color: #000000
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.19);
 }
 
 @media all and (max-width: 500px) {
