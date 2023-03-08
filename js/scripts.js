@@ -84,19 +84,18 @@ let pokemonRepository = function () {
     pokemonName.classList.add("pokemon-name");
     pokemonName.innerText = ('Name: ' + pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1));
 
-    let pokemonImage = $('<img class="modal-img" style="width:50%">');
-    pokemonImage.attr("src", pokemon.imageUrl);
-    let pokemonHeight = $("<p>" + "Height : " + pokemon.height + "</p>");
+    let pokemonImage = document.createElement('img')
+    pokemonImage.classList.add('pokemon-image')
+    pokemonImage.src = pokemon.imageUrl
+
+    let pokemonHeight = document.createElement('p');
+    pokemonHeight.classList.add('pokemon-height')
+    pokemonHeight.innerText = 'Height: ' + pokemon.height;
 
     //append elements to modal
-    modalTitle.append(pokemonName);
-    modalBody.append(pokemonImage);
-    modalBody.append(pokemonHeight);
-  }
-
-  function hideModal() {
-    let modalContainer = document.querySelector('#modal-container');
-    modalContainer.classList.remove('is-visible');
+    modalTitle.appendChild(pokemonName);
+    modalBody.appendChild(pokemonImage);
+    modalBody.appendChild(pokemonHeight);
   }
 
   //returning all functions to be available outside IIFE
