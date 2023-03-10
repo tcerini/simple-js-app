@@ -28,6 +28,7 @@ button {
   text-decoration: none;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
   transition: 0.2s;
+  min-width: 200px;
 }
 
 button:hover,
@@ -54,20 +55,21 @@ button:focus,
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.19);
 }
 
-@media all and (max-width: 500px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+/* default grid config: 4 columns*/
+.grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-@media all and (min-width: 500px) and (max-width: 750px) {
+@media all and (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media all and (max-width: 750px) {
+@media all and (max-width: 500px) {
   .grid {
-    grid-gap: 10px;
+    grid-template-columns: 1fr;
   }
 }
