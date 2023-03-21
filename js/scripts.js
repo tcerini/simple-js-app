@@ -44,19 +44,19 @@ let pokemonRepository = function () {
 
   //addListItem function inside IIFE to create button for each pokemon
   function addListItem(pokemon) {
-    let pokemonList = document.querySelector(".pokemon-list")
+    let pokemonList = document.querySelector('.pokemon-list')
     let listItem = document.createElement('li')
     let button = document.createElement('button')
-    listItem.classList.add("list-group-item")
+    listItem.classList.add('list-group-item')
     button.innerText = pokemon.name;
     button.innerText = button.innerText.charAt(0).toUpperCase() + button.innerText.slice(1);
-    button.classList.add("btn-warning")
+    button.classList.add('btn-warning')
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#exampleModal');
     listItem.appendChild(button);
     pokemonList.appendChild(listItem)
     //event listener where upon button click, showDetails performed on pokemon
-    button.addEventListener('click', function(Event) {
+    button.addEventListener('click', function() {
       showDetails(pokemon);
     });
   }
@@ -71,8 +71,8 @@ let pokemonRepository = function () {
   function showModal(pokemon) {
 
     //new remove content
-    let modalBody = document.querySelector(".modal-body");
-    let modalTitle = document.querySelector(".modal-title");
+    let modalBody = document.querySelector('.modal-body');
+    let modalTitle = document.querySelector('.modal-title');
 
     modalTitle.innerHTML = '';
     modalBody.innerHTML = '';
@@ -81,7 +81,7 @@ let pokemonRepository = function () {
     //define elements to be added to modal for pokemon
     //Pokemon name
     let pokemonName = document.createElement ('p');
-    pokemonName.classList.add("pokemon-name");
+    pokemonName.classList.add('pokemon-name');
     pokemonName.innerText = ('Name: ' + pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1));
 
     let pokemonImage = document.createElement('img')
@@ -111,6 +111,7 @@ let pokemonRepository = function () {
 
 }();
 
+// eslint-disable-next-line no-unused-vars
 let pokemonList = pokemonRepository.getAll();
 
 //retrieving all pokemon in repository and performing addListItem function forEach pokemon
